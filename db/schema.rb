@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180325195847) do
+ActiveRecord::Schema.define(version: 20180325202243) do
 
   create_table "applies", force: :cascade do |t|
     t.string "first_name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20180325195847) do
     t.integer "user_id"
     t.boolean "applied", default: false
     t.string "status", default: "applied"
+    t.string "feedback"
   end
 
   create_table "constituencies", force: :cascade do |t|

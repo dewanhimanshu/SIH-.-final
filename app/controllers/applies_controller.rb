@@ -30,7 +30,7 @@ class AppliesController < ApplicationController
 
   def update
     if @apply.update(set_params)
-      redirect_to applies_path
+      redirect_to root_path
     else
       render 'edit'
     end
@@ -49,7 +49,7 @@ class AppliesController < ApplicationController
 
   private
   def set_params
-    params.require(:apply).permit(:first_name, :last_name, :father_husband_name, :aadhaar, :date_of_birth, :address, :constituency, :mobile, :gender, :family_income)
+    params.require(:apply).permit(:first_name, :last_name, :father_husband_name, :aadhaar, :date_of_birth, :address, :constituency, :mobile, :gender, :family_income, :status, :feedback)
   end
 
   def find_apply
