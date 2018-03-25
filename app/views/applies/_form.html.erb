@@ -1,0 +1,18 @@
+
+<%= simple_form_for @apply do |f| %>
+<%= f.input :first_name %>
+<%= f.input :last_name %>
+<%= f.input :aadhaar, as: :integer, label: "Aadhaar No." %>
+<%= f.input :date_of_birth %>
+Gender:<br />
+Male
+<%= f.radio_button :gender, "Male" %>
+Female
+<%= f.radio_button :gender, "Female" %>
+<%= f.input :father_husband_name, label: "Father's/Husband's Name" %>
+<%= f.input :address %>
+<%= f.input :constituency, collection: ["Abc", "sfds", "sdfsd", "sdfsdf"] %>
+<%= f.input :mobile, as: :integer %>
+<%= f.input :family_income, as: :integer %>
+<%= f.button :submit %>
+<% end %>

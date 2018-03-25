@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  pin_code: 1
+  male_applicants: 1
+  female_applicants: 1
+
+two:
+  name: MyString
+  pin_code: 1
+  male_applicants: 1
+  female_applicants: 1
