@@ -27,4 +27,13 @@
 <br />
 <%= link_to '<button type="button" class="btn btn-danger">Delete Application</button>'.html_safe, apply_path(@apply), method: :delete %>
 <%= link_to '<button type="button" class="btn btn-primary">Edit Application</button>'.html_safe, edit_apply_path(@apply) %>
+<br />
+<% con = Constituency.where(name: @apply.constituency)[0] %>
+<% if @apply.applied == false && con.number != 0 %>
+<%= link_to "Apply", appl_path(@apply) %>
+<% elsif con.number == 0 %>
+no vacencies
+<% else %>
+already applied
+<% end %>
 <% end %>

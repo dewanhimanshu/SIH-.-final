@@ -1,6 +1,6 @@
 class AppliesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_apply, only: [:show, :edit, :update, :destroy]
+  before_action :find_apply, only: [:show, :edit, :update, :destroy, :appl]
 
   def index
     if Apply.exists?(user_id: current_user.id)
@@ -38,6 +38,12 @@ class AppliesController < ApplicationController
 
   def destroy
     @apply.destroy
+    redirect_to applies_path
+  end
+
+  def appl
+    @apply.applied = true
+    @apply.save
     redirect_to applies_path
   end
 
