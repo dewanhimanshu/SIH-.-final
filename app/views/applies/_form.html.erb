@@ -11,7 +11,7 @@ Female
 <%= f.radio_button :gender, "Female" %>
 <%= f.input :father_husband_name, label: "Father's/Husband's Name" %>
 <%= f.input :address %>
-<%= f.input :constituency, collection: ["Abc", "sfds", "sdfsd", "sdfsdf"] %>
+<%= f.input :constituency, collection: Constituency.all.pluck(:name) %>
 <%= f.input :mobile, as: :integer %>
 <%= f.input :family_income, as: :integer %>
 <%= f.button :submit %>
