@@ -17,6 +17,11 @@
   </head>
 
   <body>
+      <% if notice %>
+      <p class=" custom notice  alert-info" "><%= notice %></p>
+    <% elsif alert %>
+      <p class="  custom1 alert  alert-error" "><%= alert %></p>
+    <% end %>
 
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
@@ -110,5 +115,29 @@
     </div>
 
 <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script>
+
+
+var fade_out = function(){
+$(".custom1").fadeOut().empty();
+
+$(".custom").fadeOut().empty();
+  };
+
+
+$('.custom1').click(function(){ 
+  console.log("clicked");         
+  fade_out();
+});
+$('.custom').click(function(){ 
+  console.log("clicked");         
+  fade_out();
+});
+setTimeout(fade_out,5000);
+
+
+
+
+</script>
   </body>
 </html>
