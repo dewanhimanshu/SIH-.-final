@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 20180326112023) do
   create_table "constituencies", force: :cascade do |t|
     t.string "name"
     t.integer "pin_code"
-    t.integer "male_applicants"
-    t.integer "female_applicants"
+    t.integer "male_applicants", default: 0
+    t.integer "female_applicants", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number", default: 0

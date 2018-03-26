@@ -12,7 +12,9 @@
  *
  *= require trix
  *= require_tree .
- *= require_self
+
+ *= require sweetalert2
+  *= require_self
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
@@ -231,4 +233,35 @@ _:-ms-input-placeholder, :root .demo-graph {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.custom{
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    position: fixed;
+    background-color:   #8BC34A;
+    z-index: 99999999;
+    opacity: 0.8;
+    width: 100%;
+    padding-left: 40%;
+
+
+}
+.custom1{
+     padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    position: fixed;
+    background-color: #FFA726;
+    z-index: 99999999;
+    opacity: 0.8;
+    width: 100%;
+    
+    padding-left: 40%;
+
+    
+
 }
