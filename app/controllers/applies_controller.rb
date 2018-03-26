@@ -43,7 +43,24 @@ class AppliesController < ApplicationController
 
   def appl
     @apply.applied = true
+    @apply.status = "Applied"
     @apply.save
+    const = Constituency.where(name: @apply.constituency)[0]
+    const.number -= 1
+    if @apply.gender == "Male"
+      if const.male_applicants == nil
+        const.male_applicants = 1
+      else
+        const.male_applicants += 1
+      end
+    else
+      if const.female_applicants == nil
+        const.female_applicants = 1
+      else
+        const.female_applicants += 1
+      end
+    end
+    const.save
     redirect_to applies_path
   end
 
