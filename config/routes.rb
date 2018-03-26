@@ -16,5 +16,11 @@ Rails.application.routes.draw do
   get "applies/:id/appl", to: "applies#appl", as: "appl"
   root 'welcome#index'
   devise_for :users
+
+  get 'faqs/index'
+
+  resources :questions do
+    resources :answers
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
