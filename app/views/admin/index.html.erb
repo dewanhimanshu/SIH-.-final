@@ -22,3 +22,21 @@
 <% end %>
 </table>
 <%= link_to "New", new_constituency_path %>
+<div class="well">
+  <hr />
+  <table style="border: 2px solid black;">
+  <tr>
+    <th>ID</th>
+    <th>Email</th>
+    <th>Constituency</th>
+  </tr>
+  <% User.all.each do |u| %>
+  <% if u.user_type == true %>
+  <tr>
+    <td><%= u.id %></td>
+    <td><%= u.email %></td>
+    <td><%= u.constituency %></td>
+  </tr>
+  <% end %>
+  <% end %>
+</div>
