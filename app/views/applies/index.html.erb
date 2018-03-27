@@ -8,7 +8,6 @@
 
 <% else %>
   <h1 class="text-center">Your Application</h1>
-    <span style="margin-left: 40px;"><%= image_tag @apply.avatar.url(:thumb) %></span>
 
   <ul class="collection">
 
@@ -70,6 +69,13 @@
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">account_balance</i>
     <b>Family Income:</b><%= @apply.family_income %></li>
+  </li>
+
+  <li class="collection-item" style="list-style: none;">
+    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">photo</i>
+    <b>User Image:</b>
+    <br />
+    <span class="img-thumbnail"><%= image_tag @apply.avatar.url(:thumb) %></span>
   </li>
 
   <br />
