@@ -12,6 +12,9 @@
  *
  *= require trix
  *= require_tree .
+<<<<<<< HEAD
+ *= require_self
+
 
  *= require sweetalert2
   *= require_self
@@ -234,6 +237,8 @@ _:-ms-input-placeholder, :root .demo-graph {
       -ms-flex-align: center;
           align-items: center;
 }
+<<<<<<< HEAD
+=======
 
 .custom{
     padding: 15px;
@@ -259,9 +264,9 @@ _:-ms-input-placeholder, :root .demo-graph {
     z-index: 99999999;
     opacity: 0.8;
     width: 100%;
-    
+
     padding-left: 40%;
 
-    
+
 
 }

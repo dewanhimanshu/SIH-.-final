@@ -1,0 +1,14 @@
+<!-- <div>
+<div><%= pie_chart @apply.group(:gender).count%></div>
+<div><%= column_chart @apply.group(:caste).count %></div>
+<div><%= line_chart @apply.group(:family_income).count %></div>
+</div> -->
+<h2 class="text-center">Constituency Wise statistics</h2>
+<div style="display: flex;justify-content: space-around;margin: 30px;">
+<div style="height:300px;width:180px;margin:10px"><h4>Gender Ratio<h4><%= pie_chart @apply.group(:gender).count%></div>
+<div style="height:300px;width:180px;margin:10px"><h4>Age Ratio<h4><%= column_chart @apply.group(:date_of_birth).count%></div>
+<div style="height:300px;width:180px;margin:10px">
+  <h4>Family Incomes<h4>
+  <%= line_chart @apply.group(:family_income).count%>
+</div>
+</div>

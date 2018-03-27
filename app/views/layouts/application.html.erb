@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
+    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+  <%= javascript_include_tag "https://www.google.com/jsapi" %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
@@ -120,6 +121,22 @@
 
           </div>
         </div>
+        <h2 class="text-center">State Wise statistics</h2>
+        <div style="display: flex;justify-content: space-around;margin: 30px;">
+        <div style="height: 350px;width: 26%;margin: 10px;background-color: white;border:1px solid grey"><div style="height:180px;width:180px;margin:10px"><h4>Gender Ratio</h4><%= pie_chart Apply.all.group(:gender).count%></div></div>
+        <div style="height: 350px;width: 26%;margin: 10px;background-color: white;border:1px solid grey"><div style="height:180px;width:180px;margin:10px"><h4>Age Ratio</h4><%= column_chart Apply.all.group(:date_of_birth).count%></div></div>
+        <div style="height: 350px;width: 26%;margin: 10px;background-color: white;border:1px solid grey"><div style="height:180px;width:180px;margin:10px"><h4>Family Incomes</h4><%= bar_chart Apply.all.group(:family_income).count%></div></div>
+        </div>
+        </div>
+      </main>
+    </div>
+
+
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+=======
+
+          </div>
+        </div>
 
 
       </main>
@@ -136,12 +153,12 @@ $(".custom").fadeOut().empty();
   };
 
 
-$('.custom1').click(function(){ 
-  console.log("clicked");         
+$('.custom1').click(function(){
+  console.log("clicked");
   fade_out();
 });
-$('.custom').click(function(){ 
-  console.log("clicked");         
+$('.custom').click(function(){
+  console.log("clicked");
   fade_out();
 });
 setTimeout(fade_out,5000);

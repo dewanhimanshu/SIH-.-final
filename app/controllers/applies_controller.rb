@@ -60,7 +60,7 @@ class AppliesController < ApplicationController
         const.female_applicants += 1
       end
     end
-    const.save
+const.save
     redirect_to applies_path
   end
 

@@ -36,6 +36,11 @@ class AdminController < ApplicationController
   end
 
 
+  def show_constituency
+    @const= Constituency.find(params[:id])
+    @apply=Apply.where(constituency:@const.name)
+  end
+
   private
   def find_const
     @const = Constituency.find(params[:id])
