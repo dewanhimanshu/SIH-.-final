@@ -5,6 +5,15 @@ class AppliesController < ApplicationController
   def index
     if Apply.exists?(user_id: current_user.id)
       @apply = Apply.where(user_id: current_user.id)[0]
+
+      respond_to do |format|
+        format.html
+        format.json
+        format.pdf do
+          pdf = ApplyPdf.new(@apply)
+          send_data pdf.render, filename: "Application_#{@apply.id}.pdf", type: "application/pdf", disposition: "inline"
+        end
+      end
     else
       @apply = 0
     end

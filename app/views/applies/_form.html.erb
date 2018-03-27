@@ -18,5 +18,5 @@ Female
 <%= f.input :constituency, collection: Constituency.all.pluck(:name) %>
 <%= f.input :mobile, as: :integer %>
 <%= f.input :family_income, as: :integer %>
-<%= f.button :submit %>
+<%= f.button :submit, class: "btn waves-effect waves-light" %>
 <% end %>

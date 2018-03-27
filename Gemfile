@@ -64,7 +64,11 @@ gem 'devise', '~> 4.4', '>= 4.4.1'
 
 gem 'simple_form', '~> 3.5', '>= 3.5.1'
 
+gem 'prawn', '~> 2.2', '>= 2.2.2'
+gem 'prawn-table', '~> 0.1.0'
 
 gem 'trix', '~> 0.11.1'
 
 gem 'jquery-rails'
+
+gem 'materialize-sass', '~> 0.100.2'
