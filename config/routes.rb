@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'contact/index'
+
   get 'app_status/index'
 
   get 'notices/index'
