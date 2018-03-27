@@ -17,7 +17,7 @@ class AppliesController < ApplicationController
   def create
     @apply = Apply.new(set_params)
     @apply.user_id = current_user.id
-    
+
 
     if @apply.save
       redirect_to applies_path
@@ -67,7 +67,11 @@ const.save
 
   private
   def set_params
+<<<<<<< HEAD
     params.require(:apply).permit(:first_name, :last_name, :avatar,:father_husband_name, :aadhaar, :date_of_birth, :address, :constituency, :mobile, :gender, :family_income, :status, :feedback)
+=======
+    params.require(:apply).permit(:first_name, :last_name, :father_husband_name, :aadhaar, :date_of_birth, :address, :constituency, :mobile, :gender, :family_income, :status, :feedback)
+>>>>>>> 4eadf60cdb05a8fae641638267eb4d400e807faa
   end
 
   def find_apply
