@@ -36,6 +36,24 @@ class AdminController < ApplicationController
   end
 
 
+  def show_constituency
+    @const= Constituency.find(params[:id])
+    @apply=Apply.where(constituency:@const.name)
+  end
+
+  def edit_empl_usr
+    @user = User.find(params[:id])
+  end
+
+  def update_empl_usr
+    @user = User.find(params[:id])
+    if @user.update(params.require(:user).permit(:constituency))
+      redirect_to admin_index_path
+    else
+      render 'edit_empl_usr'
+    end
+  end
+
   private
   def find_const
     @const = Constituency.find(params[:id])

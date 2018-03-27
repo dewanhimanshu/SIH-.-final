@@ -1,8 +1,9 @@
 
-
+<div id="admin-form">
 <%= simple_form_for @const do |f| %>
-<%= f.input :name %>
-<%= f.input :pin_code %>
-<%= f.input :number %>
+<%= f.input :name, required: true %>
+<%= f.input :pin_code, required: true %>
+<%= f.input :number, required: true %>
 <%= f.button :submit %>
 <% end %>
+</div>

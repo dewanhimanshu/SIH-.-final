@@ -9,6 +9,9 @@ Male
 <%= f.radio_button :gender, "Male" %>
 Female
 <%= f.radio_button :gender, "Female" %>
+
+<br>
+
 <%= f.input :father_husband_name, label: "Father's/Husband's Name" %>
 <%= f.input :address %>
 <%= f.input :constituency, collection: Constituency.all.pluck(:name) %>
