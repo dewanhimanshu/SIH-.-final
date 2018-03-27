@@ -1,0 +1,2 @@
+class Vacency < ApplicationRecord
+end
