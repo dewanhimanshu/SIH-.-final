@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   patch "/admin/:id/", to: "admin#update_constituency", as: "constituency"
   delete "/admin/:id", to: "admin#destroy_constituency", as: "constituencies1"
 
+  get "/admin/:id/edit_empl_usr", to: "admin#edit_empl_usr", as: "edit_empl_usr"
+  patch "/admin/:id/update_empl_usr", to: "admin#update_empl_usr", as: "update_empl_usr"
+
   get 'admin/index'
 
   get 'welcome/index'

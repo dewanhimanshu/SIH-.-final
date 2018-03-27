@@ -102,6 +102,8 @@
           <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
             <%= yield %>
           </div>
+          <% if user_signed_in? %>
+          <% if current_user.admin != true %>
           <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
             <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
 
@@ -124,13 +126,19 @@
             <div class="demo-separator mdl-cell--1-col"></div>
 
           </div>
+          <% end %>
+          <% end %>
         </div>
+        <% if user_signed_in? %>
+        <% if current_user.admin != true %>
         <h2 class="text-center">State Wise statistics</h2>
         <div style="display: flex;justify-content: space-around;margin: 30px;">
         <div style="height: 350px;width: 26%;margin: 10px;background-color: white;border:1px solid grey"><div style="height:180px;width:180px;margin:10px"><h4>Gender Ratio</h4><%= pie_chart Apply.all.group(:gender).count%></div></div>
         <div style="height: 350px;width: 26%;margin: 10px;background-color: white;border:1px solid grey"><div style="height:180px;width:180px;margin:10px"><h4>Age Ratio</h4><%= column_chart Apply.all.group(:date_of_birth).count%></div></div>
         <div style="height: 350px;width: 26%;margin: 10px;background-color: white;border:1px solid grey"><div style="height:180px;width:180px;margin:10px"><h4>Family Incomes</h4><%= bar_chart Apply.all.group(:family_income).count%></div></div>
         </div>
+        <% end %>
+        <% end %>
       </div>
 
       </main>

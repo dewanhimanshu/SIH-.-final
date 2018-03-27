@@ -33,28 +33,7 @@
     </tbody>
   </table>
 </div>
-<table style="border: 2px solid black;">
-  <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th>PIN Code</th>
-    <th>Male Applicants</th>
-    <th>Female Applicants</th>
-    <th>Vacencies</th>
-    <th>Action</th>
-  </tr>
-<% @const.each do |c| %>
-  <tr>
-    <td><%= c.id %></td>
-    <td><%= link_to c.name, edit_constituency_path(c) %></td>
-    <td><%= c.pin_code %></td>
-    <td><%= c.male_applicants %></td>
-    <td><%= c.female_applicants %></td>
-    <td><%= c.number %></td>
-    <td><%= link_to "Delete", constituencies1_path(c), method: :delete, data: {confirm: "Are you sure you want to delete this constituency?"} %></td>
-  </tr>
-<% end %>
-</table>
+
 <%= link_to "New", new_constituency_path %>
 <div class="well">
   <hr />
@@ -68,7 +47,7 @@
   <% if u.user_type == true %>
   <tr>
     <td><%= u.id %></td>
-    <td><%= u.email %></td>
+    <td><%= link_to u.email, edit_empl_usr_path(u) %></td>
     <td><%= u.constituency %></td>
   </tr>
   <% end %>
