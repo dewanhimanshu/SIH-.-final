@@ -18,3 +18,7 @@
 //= require chartkick
 //= require bootstrap-sprockets
 //= require trix
+//= require bootstrap-sprockets
+//= require trix
+//= require sweetalert2
+//= require sweet-alert2-rails
