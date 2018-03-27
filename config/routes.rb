@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'app_status/index'
+
+  get 'notices/index'
+
+  get 'circulars/index'
+
   get "/admin/new_constituency", to: "admin#new_constituency", as: "new_constituency"
   post "/admin/", to: "admin#create_constituency", as: "constituencies"
   get "/admin/:id/edit_constituency", to: "admin#edit_constituency", as: "edit_constituency"
@@ -21,6 +27,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'faqs/index'
+
+  resources :stats, only: [:index]
 
   resources :questions do
     resources :answers
