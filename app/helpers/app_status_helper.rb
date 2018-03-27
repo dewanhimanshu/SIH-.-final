@@ -1,0 +1,2 @@
+module AppStatusHelper
+end

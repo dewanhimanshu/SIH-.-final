@@ -1,0 +1,108 @@
+
+
+<% if @apply == 0 %>
+  <h3>Apply For Pension</h3>
+  <%= link_to '<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+    <i class="material-icons">add</i>
+    </button>'.html_safe, new_apply_path %>
+
+<% else %>
+  <h1 class="text-center">Your Application</h1>
+    <span style="margin-left: 40px;"><%= image_tag @apply.avatar.url(:thumb) %></span>
+
+  <ul class="collection">
+
+  <li class="collection-item" style="list-style: none;">
+    <li class="list-group-item">
+    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
+    <b>First Name:</b><%= @apply.first_name %></li>
+  </li>
+
+  <li class="collection-item" style="list-style: none;">
+    <li class="list-group-item">
+    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
+    <b>Last Name:</b><%= @apply.last_name %></li>
+  </li>
+
+  <li class="collection-item" style="list-style: none;">
+    <li class="list-group-item">
+    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">confirmation_number</i>
+    <b>Aadhaar:</b><%= @apply.aadhaar %></li>
+  </li>
+
+  <li class="collection-item" style="list-style: none;">
+    <li class="list-group-item">
+    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>
+    <b>Father's/Husband's Name:</b><%= @apply.father_husband_name %></li>
+  </li>
+
+  <li class="collection-item" style="list-style: none;">
+    <li class="list-group-item">
+    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">cake</i>
+    <b>Date of Birth:</b><%= @apply.date_of_birth %></li>
+  </li>
+
+  <li class="collection-item" style="list-style: none;">
+    <li class="list-group-item">
+    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">face</i>
+    <b>Gender:</b><%= @apply.gender %></li>
+  </li>
+
+  <li class="collection-item" style="list-style: none;">
+    <li class="list-group-item">
+    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>
+    <b>Address:</b><%= @apply.address %></li>
+  </li>
+
+  <li class="collection-item" style="list-style: none;">
+    <li class="list-group-item">
+    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">business</i>
+    <b>Constituency:</b><%= @apply.constituency %></li>
+  </li>
+
+  <li class="collection-item" style="list-style: none;">
+    <li class="list-group-item">
+    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">phone</i>
+    <b>Mobile:</b><%= @apply.mobile %></li>
+  </li>
+
+  <li class="collection-item" style="list-style: none;">
+    <li class="list-group-item">
+    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">account_balance</i>
+    <b>Family Income:</b><%= @apply.family_income %></li>
+  </li>
+
+  <br />
+<div class="well">
+  <% if @apply.status == "Declined" %>
+    <% @apply.applied = false %>
+    <% @apply.save %>
+    <b>Status:</b><%= @apply.status %>
+    <br />
+    <%= link_to '<button type="button" class="btn btn-danger">Delete Application</button>'.html_safe, apply_path(@apply), method: :delete %>
+    <%= link_to '<button type="button" class="btn btn-primary">Edit Application</button>'.html_safe, edit_apply_path(@apply) %>
+    <br />
+  <% end %>
+    <% con = Constituency.where(name: @apply.constituency)[0] %>
+  <% if @apply.status == "Applied" && @apply.applied == true %>
+  <b>Status:</b><%= @apply.status %>
+  <br />
+  already applied
+  <% elsif @apply.applied == false && con.number != 0 %>
+    <%= link_to '<button class="waves-effect waves-light btn">Apply</button>'.html_safe, appl_path(@apply) %>
+  <% elsif con.number == 0 %>
+    <%= link_to '<button type="button" class="btn btn-danger">Delete Application</button>'.html_safe, apply_path(@apply), method: :delete %>
+    <%= link_to '<button type="button" class="btn btn-primary">Edit Application</button>'.html_safe, edit_apply_path(@apply) %>
+    no vacencies
+  <% else %>
+    <b>Status:</b><%= @apply.status %>
+    <br />
+    <% if @apply.status == "Declined" %>
+      <%= link_to '<button type="button" class="btn btn-danger">Delete Application</button>'.html_safe, apply_path(@apply), method: :delete %>
+      <%= link_to '<button type="button" class="btn btn-danger">Delete Application</button>'.html_safe, apply_path(@apply), method: :delete %>
+    <% end %>
+    <br />
+    already applied
+  <% end %>
+</div>
+<% end %>

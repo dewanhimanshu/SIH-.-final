@@ -1,0 +1,63 @@
+<h1>Constituencies</h1>
+
+<div class="something ">
+  <h2>Table</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>PIN Code</th>
+        <th>Male Applicants</th>
+        <th>Female Applicants</th>
+        <th>Vacencies</th>
+        <th>statistics</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @const.each do |c| %>
+            <td><%= c.id %></td>
+            <td><%= link_to c.name, edit_constituency_path(c) %></td>
+            <td><%= c.pin_code %></td>
+            <td><%= c.male_applicants %></td>
+            <td><%= c.female_applicants %></td>
+            <td><%= c.number %></td>
+            <td><%=link_to"show",show_constituency_path(c.id)%></td>
+            <td><%= link_to "Delete", constituencies1_path(c), method: :delete, data: {confirm: "Are you sure you want to delete this constituency?"} %></td>
+          </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to "New", new_constituency_path %>
+
+<br>
+<hr style="border:1px solid">
+<div class="something ">
+  <h2>Employees</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Constituency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% User.all.each do |u| %>
+        <% if u.user_type == true %>
+        <tr>
+          <td><%= u.id %></td>
+          <td><%= link_to u.email, edit_empl_usr_path(u) %></td>
+          <td><%= u.constituency %></td>
+          <td><%= link_to"delete",empl_path(u.id),method: :delete%></td>
+        </tr>
+        <% end %>
+        <% end %>
+    </tbody>
+  </table>
+</div>
