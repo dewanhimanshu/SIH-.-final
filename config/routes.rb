@@ -26,6 +26,9 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
+  get 'empl/accepted',to: "empl#accepted", as: "empl_accepted"
+  get 'empl/rejected',to: "empl#rejected", as: "empl_rejected"
+  get 'empl/all',to: "empl#all", as: "empl_all"
   resources :empl
 
   resources :applies

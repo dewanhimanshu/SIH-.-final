@@ -1,12 +1,14 @@
-<h1 >Applications</h1>
-<div style="display:flex;justify-content:left">
-<%=link_to"All Applications",empl_all_path%>
-&nbsp &nbsp &nbsp
-<%=link_to"Accepted applications",empl_accepted_path%>
-&nbsp &nbsp &nbsp
-<%=link_to"Rejected applications",empl_rejected_path%>
+<div>
+<h4> Applications<h4>
+  <div style="display:flex;justify-content:left">
+    <%=link_to"Pending applications",empl_index_path%>
+    &nbsp &nbsp &nbsp
+    <%=link_to"Accepted applications",empl_accepted_path%>
+  &nbsp &nbsp &nbsp
+  <%=link_to"Rejected Applications",empl_rejected_path%>
 </div>
-<% @appl.each do |a| %>
+</div>
+<% @apply.each do |a| %>
 <span style="background-color:	#DCDCDC ;padding:10px;">
 <span class="img-thumbnail"><%= image_tag a.avatar.url(:thumb) %></span>
 <br>
@@ -30,7 +32,6 @@
 <br />
 <b>Family Income:</b><%= a.family_income %>
 <br />
-<%= render 'applies/formFeed', appl: a %>
 </span>
 <hr>
 <% end %>

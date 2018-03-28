@@ -104,8 +104,10 @@
         <a href="/users/sign_in" class="btn-get-started scrollto">Login</a>
         <a href="/users/sign_up" class="btn-projects scrollto">Apply</a>
         <%else%>
-          <%if !current_user.applied == true%>
-            <a href="/applies/new" class="btn-projects scrollto">Apply</a>
+        <%if current_user.admin == false && current_user.user_type==false%>
+            <%if !current_user.applied == true%>
+              <a href="/applies/new" class="btn-projects scrollto">Apply</a>
+            <%end%>
           <%end%>
         <%end%>
       </div>
