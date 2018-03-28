@@ -1,0 +1,6 @@
+<%= simple_form_for @notice do |f| %>
+<%= f.input :by %>
+<%= f.input :content %>
+<%= f.input :constituency, collection: Constituency.all.pluck(:name) ,required: true %>
+<%= f.button :submit %>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180327123049) do
+ActiveRecord::Schema.define(version: 20180328050749) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
@@ -45,14 +45,36 @@ ActiveRecord::Schema.define(version: 20180327123049) do
     t.datetime "avatar_updated_at"
   end
 
+  create_table "circulars", force: :cascade do |t|
+    t.string "by"
+    t.text "content", default: ""
+    t.string "title"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "document_file_name"
+    t.string "document_content_type"
+    t.integer "document_file_size"
+    t.datetime "document_updated_at"
+  end
+
   create_table "constituencies", force: :cascade do |t|
     t.string "name"
     t.integer "pin_code"
-    t.integer "male_applicants", default: 0
-    t.integer "female_applicants", default: 0
+    t.integer "male_applicants"
+    t.integer "female_applicants"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number", default: 0
+  end
+
+  create_table "notices", force: :cascade do |t|
+    t.string "by"
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "constituency", default: "For all"
   end
 
   create_table "questions", force: :cascade do |t|

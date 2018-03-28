@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   get 'app_status/index'
 
-  get 'notices/index'
+  resources :notices
 
   get 'circulars/index'
+
+  resources :circulars
 
   get "/admin/new_constituency", to: "admin#new_constituency", as: "new_constituency"
   post "/admin/", to: "admin#create_constituency", as: "constituencies"

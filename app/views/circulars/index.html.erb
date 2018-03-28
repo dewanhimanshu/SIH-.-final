@@ -1,2 +1,12 @@
-<h1>Circulars#index</h1>
-<p>Find me in app/views/circulars/index.html.erb</p>
+<h1>Circulars</h1>
+
+<% @circular.each do |c| %>
+<div class="well">
+<%= c.by %>
+<br />
+<%= c.title %>
+<br />
+<%= c.content.html_safe %>
+</div>
+<hr />
+<% end %>

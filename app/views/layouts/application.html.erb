@@ -12,12 +12,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
-  <%= javascript_include_tag "https://www.google.com/jsapi" %>
+    <%= javascript_include_tag "https://www.google.com/jsapi" %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-        <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" %>
 
   </head>
 
@@ -90,7 +90,7 @@
           <%= link_to '<div class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Discussion Forum</div>'.html_safe, questions_path %>
           <%= link_to '<div class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">pages</i>FAQs</div>'.html_safe, faqs_index_path %>
           <%= link_to '<div class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">class</i>Circulars</div>'.html_safe, circulars_index_path %>
-          <%= link_to '<div class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">picture_in_picture</i>Notices</div>'.html_safe, notices_index_path %>
+          <%= link_to '<div class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">picture_in_picture</i>Notices</div>'.html_safe, notices_path %>
           <%= link_to '<div class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">assessment</i>Statistics</div>'.html_safe, stats_path %>
           <%= link_to '<div class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">assignment_turned_in</i>Application Status</div>'.html_safe, app_status_index_path %>
 
@@ -150,7 +150,7 @@
 <script>
 
 
-    
+
 var fade_out = function(){
 $(".custom1").fadeOut().empty();
 

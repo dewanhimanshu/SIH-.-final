@@ -4,6 +4,8 @@ class AdminController < ApplicationController
 
   def index
     @const = Constituency.all
+    @notice = Notice.new
+    @circular = Circular.new
   end
 
   def new_constituency
