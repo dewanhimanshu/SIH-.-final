@@ -42,6 +42,10 @@ end
 
   get 'welcome/delete', to: "welcome#delete" , as:"sign_out_path"
 
+  devise_for :users
+
+  get 'faqs/index'
+
   resources :stats, only: [:index]
 
   resources :questions do
