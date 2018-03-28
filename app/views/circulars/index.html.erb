@@ -1,0 +1,12 @@
+<h1>Circulars</h1>
+
+<% @circular.each do |c| %>
+<div class="well">
+<%= c.by %>
+<br />
+<%= c.title %>
+<br />
+<%= c.content.html_safe %>
+</div>
+<hr />
+<% end %>

@@ -1,0 +1,31 @@
+
+<%= simple_form_for @apply,:html => { :multipart => true } do |f| %>
+<%= f.input :first_name  , required: true %>
+<%= f.input :last_name , required: true%>
+<%= f.input :avatar  , required: true%>
+<%= f.input :aadhaar, as: :integer, label: "Aadhaar No." , required: true%>
+<%= f.input :date_of_birth , required: true%>
+Gender:<br />
+Male
+<%= f.radio_button :gender, "Male" %>
+Female
+<%= f.radio_button :gender, "Female" %>
+
+<br>
+
+<%= f.input :father_husband_name, label: "Father's/Husband's Name" , required: true %>
+<%= f.input :address , required: true%>
+<%= f.input :constituency, collection: Constituency.all.pluck(:name) ,required: true %>
+<%= f.input :mobile, as: :integer , required: true%>
+<%= f.input :family_income, as: :integer , required: true%>
+<%= f.button :submit , id:"button", onclick:"tri" %>
+<% end %>
+
+<script >
+	var tri = function(){
+	$('#button').click(function(){
+		swal("Here's the title!", "...and here's the text!");
+	});
+};
+
+</script>
