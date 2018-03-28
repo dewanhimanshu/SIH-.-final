@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   resources :applies
   get "applies/:id/appl", to: "applies#appl", as: "appl"
   root 'welcome#index'
-
   devise_for :users
   devise_scope :user do
   get '/users/sign_out' => 'devise/sessions#destroy'
@@ -41,10 +40,6 @@ end
   get 'faqs/index'
 
   get 'welcome/delete', to: "welcome#delete" , as:"sign_out_path"
-
-  devise_for :users
-
-  get 'faqs/index'
 
   resources :stats, only: [:index]
 
