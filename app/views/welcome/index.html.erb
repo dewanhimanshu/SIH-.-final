@@ -72,7 +72,17 @@
           <%if !user_signed_in?%>
           <li><a href="/users/sign_in">Login</a></li>
           <%end%>
+          <%if user_signed_in?%>
+              <%if current_user.admin == true%>
+                 <li><%=link_to"Dashborad",admin_index_path%></li>
+              <%elsif current_user.user_type == false%>
+                 <li><%=link_to"Dashborad",applies_path%></li>
+              <%elsif current_user.user_type == true%>
+                 <li><%=link_to"Dashborad",empl_index_path%></li>
+              <%end%>
+          <%else%>
           <li><a href="/users/sign_up">Apply</a></li>
+          <%end%>
           <li><a href="#contact">Contact</a></li>
           <%if user_signed_in?%>
           <li><%=link_to"Logout",destroy_user_session_path, method: :delete%></li>
@@ -90,8 +100,14 @@
     <div class="intro-content">
       <h2>Marching <span>Towards</span><br>Jan Suraksha!</h2>
       <div>
-        <a href="#about" class="btn-get-started scrollto">Login</a>
-        <a href="#portfolio" class="btn-projects scrollto">Join</a>
+        <%if !user_signed_in?%>
+        <a href="/users/sign_in" class="btn-get-started scrollto">Login</a>
+        <a href="/users/sign_up" class="btn-projects scrollto">Apply</a>
+        <%else%>
+          <%if !current_user.applied == true%>
+            <a href="/applies/new" class="btn-projects scrollto">Apply</a>
+          <%end%>
+        <%end%>
       </div>
     </div>
 
@@ -462,6 +478,9 @@
 
   <!-- Template Main Javascript File -->
   <script src="assets/js/main.js"></script>
+  <script>
+  console.log(current_user.applied)
+  </script>
 
 </body>
 </html>
