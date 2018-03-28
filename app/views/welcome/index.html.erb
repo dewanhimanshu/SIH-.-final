@@ -341,39 +341,12 @@
       Our Team Section
     ============================-->
     <section id="team" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="text-center">Statistics</h2>
-        </div>
-        <div class="row ">
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="assets/team-2.jpg" alt=""></div>
-              <div class="details">
-                <h4>Gender Ratio</h4>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="assets/team-3.jpg" alt=""></div>
-              <div class="details">
-                <h4>Age Distribution</h4>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="assets/team-4.jpg" alt=""></div>
-              <div class="details">
-                <h4>Vaccancies</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-
+      <h2 class="text-center">Overall statistics</h2>
+      <div style="display: flex;justify-content: space-around;margin: 30px;">
+       <div  id="chart_div" style="height:300px;width:180px;margin:10px"><h4>Applications</h4></div>
+       <div  id="barchart_values" style="height:300px;width:180px;margin-left:-400px"><h4>Age Distribution</h4></div>
+       <div id="charte_div" style="height:300px;width:180px;margin:10px"><h4>Family Incomes</h4></div>
       </div>
     </section><!-- #team -->
 
@@ -483,6 +456,104 @@
   <script>
   console.log(current_user.applied)
   </script>
+
+  <html>
+    <head>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['gender', 'Length'],
+            ['Acrocanthosaurus (top-spined lizard)', 3.2],
+            ['Albertosaurus (Alberta lizard)', 13.1],
+            ['Apatosaurus (deceptive lizard)', 22.9],
+          ['Archaeopteryx (ancient wing)', 0.9],
+          ['Argentinosaurus (Argentina lizard)', 36.6],
+          ['Baryonyx (heavy claws)', 9.1],
+          ['Brachiosaurus (arm lizard)', 30.5],
+          ['Ceratosaurus (horned lizard)', 6.1],
+          ['Coelophysis (hollow form)', 2.7],
+          ['Compsognathus (elegant jaw)', 0.9],
+          ['Deinonychus (terrible claw)', 2.7],
+          ['Diplodocus (double beam)', 27.1],
+          ['Dromicelomimus (emu mimic)', 3.4],
+          ['Gallimimus (fowl mimic)', 5.5],
+          ['Mamenchisaurus (Mamenchi lizard)', 21.0],
+          ['Megalosaurus (big lizard)', 7.9],
+          ['Microvenator (small hunter)', 1.2],
+          ['Ornithomimus (bird mimic)', 4.6],
+          ['Oviraptor (egg robber)', 1.5],
+
+        ['Albertosaurus (Alberta lizard)', 14.1]]);
+
+          var options = {
+            title: 'Family Incomes, in meters',
+            legend: { position: 'none' },
+          };
+
+          var chart = new google.visualization.Histogram(document.getElementById('charte_div'));
+          chart.draw(data, options);
+        }
+      </script>
+
+      <script type="text/javascript">
+  google.charts.load("current", {packages:["corechart"]});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ["Element", "Density", { role: "style" } ],
+      ["Copper", 8.94, "#b87333"],
+      ["Silver", 10.49, "silver"],
+      ["Gold", 19.30, "gold"],
+      ["Platinum", 21.45, "color: #e5e4e2"]
+    ]);
+
+    var view = new google.visualization.DataView(data);
+    view.setColumns([0, 1,
+                     { calc: "stringify",
+                       sourceColumn: 1,
+                       type: "string",
+                       role: "annotation" },
+                     2]);
+
+    var options = {
+      title: "Vaccancies",
+      width: 600,
+      height: 400,
+      bar: {groupWidth: "95%"},
+      legend: { position: "none" },
+    };
+    var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+    chart.draw(view, options);
+}
+</script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2013',  1000,      400],
+          ['2014',  1170,      460],
+          ['2015',  660,       1120],
+          ['2016',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Applicants History',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
 
 </body>
 </html>
