@@ -1,0 +1,9 @@
+
+
+<%= simple_form_for appl do |f| %>
+<br />
+Decline
+<%= f.radio_button :status, "Decline" %>
+<%= f.input :feedback %>
+<%= f.button :submit %>
+<% end %>

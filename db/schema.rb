@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328050749) do
+ActiveRecord::Schema.define(version: 20180328210819) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 20180328050749) do
   create_table "constituencies", force: :cascade do |t|
     t.string "name"
     t.integer "pin_code"
-    t.integer "male_applicants"
-    t.integer "female_applicants"
+    t.integer "male_applicants", default: 0
+    t.integer "female_applicants", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number", default: 0
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20180328050749) do
     t.string "sign_content_type"
     t.integer "sign_file_size"
     t.datetime "sign_updated_at"
+    t.boolean "applied", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

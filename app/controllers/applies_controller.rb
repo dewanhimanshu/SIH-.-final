@@ -26,8 +26,8 @@ class AppliesController < ApplicationController
   def create
     @apply = Apply.new(set_params)
     @apply.user_id = current_user.id
-
-
+    current_user.applied=true
+    current_user.save
     if @apply.save
       redirect_to applies_path
     else

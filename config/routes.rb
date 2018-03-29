@@ -26,14 +26,23 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
+  get 'empl/accepted',to: "empl#accepted", as: "empl_accepted"
+  get 'empl/rejected',to: "empl#rejected", as: "empl_rejected"
+  get 'empl/all',to: "empl#all", as: "empl_all"
   resources :empl
 
   resources :applies
   get "applies/:id/appl", to: "applies#appl", as: "appl"
   root 'welcome#index'
   devise_for :users
+  devise_scope :user do
+  get '/users/sign_out' => 'devise/sessions#destroy'
+end
+
 
   get 'faqs/index'
+
+  get 'welcome/delete', to: "welcome#delete" , as:"sign_out_path"
 
   resources :stats, only: [:index]
 

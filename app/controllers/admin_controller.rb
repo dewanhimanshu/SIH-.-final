@@ -55,6 +55,10 @@ class AdminController < ApplicationController
       render 'edit_empl_usr'
     end
   end
+  # 
+  # def marker
+  #   @placename=Array.new(Constituency.All.length)
+  # end
 
   private
   def find_const
