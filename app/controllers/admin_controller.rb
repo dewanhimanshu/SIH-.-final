@@ -55,7 +55,11 @@ class AdminController < ApplicationController
       render 'edit_empl_usr'
     end
   end
-  # 
+
+  def new_employee
+
+  end
+  #
   # def marker
   #   @placename=Array.new(Constituency.All.length)
   # end

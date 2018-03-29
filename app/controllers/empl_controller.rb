@@ -25,4 +25,5 @@ class EmplController < ApplicationController
     @apply=Apply.where(constituency: current_user.constituency)
   end
 
+
 end
