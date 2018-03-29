@@ -2,11 +2,11 @@
 
 <% @circular.each do |c| %>
 <div class="well">
-<%= c.by %>
+<b>By:</b><%= c.by %>
 <br />
-<%= c.title %>
+<b><%= link_to c.title, circular_path(c) %></b>
 <br />
-<%= c.content.html_safe %>
+Created <%= time_ago_in_words(c.created_at) %> ago
 </div>
 <hr />
 <% end %>

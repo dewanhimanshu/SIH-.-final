@@ -1,0 +1,11 @@
+<h1>Circular Id:<%= @circular.id %></h1>
+<b>By:</b> <%= @circular.by %>
+<hr />
+<b>Title:</b> <%= @circular.title %>
+<hr />
+<b>Content:</b>
+<hr />
+<%= @circular.content.html_safe %>
+<hr />
+<b>Created <%= time_ago_in_words(@circular.created_at) %> ago</b>
+<hr />

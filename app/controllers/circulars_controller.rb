@@ -1,6 +1,6 @@
 class CircularsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :find_circular, only: [:edit, :update, :destroy]
+  before_action :find_circular, only: [:edit, :update, :destroy, :show]
 
   def index
     @circular = Circular.all.order("created_at DESC")
@@ -18,6 +18,9 @@ class CircularsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
   end
 
   def edit
