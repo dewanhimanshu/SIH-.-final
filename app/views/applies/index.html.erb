@@ -1,3 +1,9 @@
+<div>
+Choose a text size:
+<font size="2"><a href="javascript:void(0);" onclick="changemysize(16);">A</a></font>
+<font size="4"><a href="javascript:void(0);" onclick="changemysize(20);">A</a></font>
+<font size="5"><a href="javascript:void(0);" onclick="changemysize(25);">A</a></font>
+</div>
 
 
 <% if @apply == 0 %>
@@ -6,82 +12,81 @@
     <i class="material-icons">add</i>
     </button>'.html_safe, new_apply_path %>
 
-
 <% else %>
-  <h1 class="text-center">Your Application</h1>
+
+  <h1 class="text-center"><div id="a">Your Application</div></h1>
 
   <ul class="collection">
 
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
-    <b>First Name:</b><%= @apply.first_name %></li>
+<b><div id="n">First Name:</b><%= @apply.first_name %></div></li>
   </li>
-
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
-    <b>Last Name:</b><%= @apply.last_name %></li>
-  </li>
+    <b><div id="b">Last Name:</b><%= @apply.last_name %></div></li>
+</li>
 
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">confirmation_number</i>
-    <b>Aadhaar:</b><%= @apply.aadhaar %></li>
+    <b><div id="c">Aadhaar:</b><%= @apply.aadhaar %></div></li>
   </li>
 
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>
-    <b>Father's/Husband's Name:</b><%= @apply.father_husband_name %></li>
+    <b><div id="d">Father's/Husband's Name:</b><%= @apply.father_husband_name %></div></li>
   </li>
 
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">cake</i>
-    <b>Date of Birth:</b><%= @apply.date_of_birth %></li>
+    <b><div id="e">Date of Birth:</b><%= @apply.date_of_birth %></div></li>
   </li>
 
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">face</i>
-    <b>Gender:</b><%= @apply.gender %></li>
+    <b><div id="f">Gender:</b><%= @apply.gender %></div></li>
   </li>
 
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>
-    <b>Address:</b><%= @apply.address %></li>
+    <b><div id="g">Address:</b><%= @apply.address %></div></li>
   </li>
 
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">business</i>
-    <b>Constituency:</b><%= @apply.constituency %></li>
+    <b><div id="h">Constituency:</b><%= @apply.constituency %></div></li>
   </li>
 
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">phone</i>
-    <b>Mobile:</b><%= @apply.mobile %></li>
+    <b><div id="i">Mobile:</b><%= @apply.mobile %></div></li>
   </li>
 
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">account_balance</i>
-    <b>Family Income:</b><%= @apply.family_income %></li>
+    <b><div id="j">Family Income:</b><%= @apply.family_income %></div></li>
   </li>
 
   <li class="collection-item" style="list-style: none;">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">photo</i>
-    <b>User Image:</b>
+    <b><div id="z">User Image:</div></b>
     <br />
     <span class="img-thumbnail"><%= image_tag @apply.avatar.url(:thumb) %></span>
   </li>
 
   <br />
 <div class="well">
-  <b>Status:</b> <%= @apply.status %>
+  <b><div id="k">Status:</b> <%= @apply.status %></div>
   <br />
 
   <% if @apply.status == "applied" %>
@@ -92,3 +97,47 @@
   <%= link_to '<button class="waves-effect waves-light btn">Print Application</button>'.html_safe, applies_path(@apply, format: "pdf"), target: :_blank %>
 </div>
 <% end %>
+
+<script type="text/javascript">
+function changemysize(myvalue) {
+    var div = document.getElementById("a");
+    div.style.fontSize = myvalue + "px";
+
+    var div = document.getElementById("b");
+    div.style.fontSize = myvalue + "px";
+
+    var div = document.getElementById("c");
+    div.style.fontSize = myvalue + "px";
+
+    var div = document.getElementById("d");
+    div.style.fontSize = myvalue + "px";
+    var div = document.getElementById("e");
+    div.style.fontSize = myvalue + "px";
+
+    var div = document.getElementById("f");
+    div.style.fontSize = myvalue + "px";
+    var div = document.getElementById("g");
+    div.style.fontSize = myvalue + "px";
+
+    var div = document.getElementById("h");
+    div.style.fontSize = myvalue + "px";
+
+    var div = document.getElementById("i");
+    div.style.fontSize = myvalue + "px";
+
+    var div = document.getElementById("j");
+    div.style.fontSize = myvalue + "px";
+
+    var div = document.getElementById("k");
+    div.style.fontSize = myvalue + "px";
+
+
+    var div = document.getElementById("n");
+    div.style.fontSize = myvalue + "px";
+
+
+    var div = document.getElementById("z");
+    div.style.fontSize = myvalue + "px";
+
+}
+</script>

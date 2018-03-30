@@ -8,7 +8,9 @@
   <%=link_to"Accepted applications",empl_accepted_path%>
 </div>
 </div>
-<% @appl.each do |a| %>
+
+<%@appl.each do |a| %>
+
 <span style="background-color:	#DCDCDC ;padding:10px;">
 <span class="img-thumbnail"><%= image_tag a.avatar.url(:thumb) %></span>
 <br>

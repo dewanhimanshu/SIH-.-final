@@ -44,11 +44,20 @@
   ============================-->
   <section id="topbar" class="d-none d-lg-block">
     <div class="container clearfix">
+
+      <div class="contact-info float-left" id="a">
+        <i class="fa fa-envelope-o"></i><a href="mailto:contact@example.com">contact@example.com</a>
+        <i class="fa fa-phone"></i> +1 5589 55488 55
+        <i class="fa fa-phone"></i> +91 9999999999
+        &nbsp &nbsp &nbsp
+        <font size="2"><a href="javascript:void(0);" onclick="changemysize(19);">A</a></font>
+        <font size="4"><a href="javascript:void(0);" onclick="changemysize(24);">A</a></font>
+        <font size="5"><a href="javascript:void(0);" onclick="changemysize(30);">A</a></font>
+</div>
       <div class="contact-info float-left">
         <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">contact@example.com</a>
         <i class="fa fa-phone"></i> +91 9999999999
       </div>
-
     </div>
   </section>
 
@@ -74,6 +83,11 @@
           <%end%>
           <%if user_signed_in?%>
               <%if current_user.admin == true%>
+                 <li><%=link_to"Dashborad",admin_index_path%></li>
+              <%elsif current_user.user_type == false%>
+                 <li><%=link_to"Dashborad",applies_path%></li>
+              <%elsif current_user.user_type == true%>
+                 <li><%=link_to"Dashborad",empl_index_path%></li>
                  <li><%=link_to"Dashboard",admin_index_path%></li>
               <%elsif current_user.user_type == false%>
                  <li><%=link_to"Dashboard",applies_path%></li>
@@ -87,6 +101,7 @@
           <%if user_signed_in?%>
           <li><%=link_to"Logout",destroy_user_session_path, method: :delete%></li>
           <%end%>
+
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -134,6 +149,8 @@
           <div class="col-lg-6 about-img text-center">
             <img src="assets/satya.jpeg" alt="">
           </div>
+
+          <div class="col-lg-6 content" id="b">
 
           <div class="col-lg-6 content">
             <h2>About Us</h2>
@@ -346,6 +363,7 @@
       <div style="display: flex;justify-content: space-around;margin: 30px;">
        <div  id="chart_div" style="height:300px;width:180px;margin:10px"><h4>Applications</h4></div>
        <div  id="barchart_values" style="height:300px;width:180px;margin-left:-400px"><h4>Age Distribution</h4></div>
+       <div  id="charte_div" style="height:300px;width:180px;margin:10px"><h4>Family Incomes</h4></div>
        <div id="charte_div" style="height:300px;width:180px;margin:10px"><h4>Family Incomes</h4></div>
       </div>
     </section><!-- #team -->
@@ -554,6 +572,36 @@
       }
     </script>
 
+        <script>
+        function changemysize(myvalue) {
+            var div = document.getElementById("a");
+            div.style.fontSize = myvalue + "px";
 
+            var div = document.getElementById("b");
+            div.style.fontSize = myvalue + "px";
+
+            var div = document.getElementById("c");
+            div.style.fontSize = myvalue + "px";
+
+            var div = document.getElementById("d");
+            div.style.fontSize = myvalue + "px";
+            var div = document.getElementById("e");
+            div.style.fontSize = myvalue + "px";
+
+            var div = document.getElementById("f");
+            div.style.fontSize = myvalue + "px";
+            var div = document.getElementById("g");
+            div.style.fontSize = myvalue + "px";
+
+            var div = document.getElementById("h");
+            div.style.fontSize = myvalue + "px";
+
+            var div = document.getElementById("i");
+            div.style.fontSize = myvalue + "px";
+
+            var div = document.getElementById("j");
+            div.style.fontSize = myvalue + "px";
+          }
+    </script>
 </body>
 </html>

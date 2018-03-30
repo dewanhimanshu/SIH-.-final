@@ -26,8 +26,23 @@ class AppliesController < ApplicationController
   def create
     @apply = Apply.new(set_params)
     @apply.user_id = current_user.id
+sum = 0
+    if @apply.medical==true
+      sum = sum + 5
+    end
 
-    current_user.applied = true
+    if (@apply.family_income).to_i <= 100000
+      sum = sum + 5
+    end
+
+    @u=@apply.date_of_birth
+    @k=Date.current
+
+    if @k.year-@u.year >=65 && @k.year-@u.year <=75
+      sum = sum + 5
+    end
+    @apply.points=sum
+current_user.applied = true
     current_user.save
     if @apply.save
       @const = Constituency.where(name: @apply.constituency)[0]

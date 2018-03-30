@@ -5,10 +5,10 @@
     &nbsp &nbsp &nbsp
 <%=link_to"Pending applications",empl_index_path%>
   &nbsp &nbsp &nbsp
-  <%=link_to"Declined applications",empl_rejected_path%>
+  <%=link_to"Rejected applications",empl_rejected_path%>
 </div>
 </div>
-<% @appl.each do |a| %>
+<% @accepted.each do |a| %>
 <span style="background-color:	#DCDCDC ;padding:10px;">
 <span class="img-thumbnail"><%= image_tag a.avatar.url(:thumb) %></span>
 <br>
@@ -31,6 +31,8 @@
 <b>Mobile:</b><%= a.mobile %>
 <br />
 <b>Family Income:</b><%= a.family_income %>
+<br />
+<b>Points:</b><%= a.points %>
 <br />
 </span>
 <hr>

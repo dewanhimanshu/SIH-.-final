@@ -1,12 +1,10 @@
-<h1 >Applications</h1>
+<h1 ><%= current_user.constituency%> Pending Applications</h1>
 <div style="display:flex;justify-content:left">
 <%=link_to"All Applications",empl_all_path%>
 &nbsp &nbsp &nbsp
 <%=link_to"Accepted applications",empl_accepted_path%>
 &nbsp &nbsp &nbsp
-<%=link_to"Declined applications",empl_rejected_path%>
-</div>
-<h1><%= current_user.constituency %></h1>
+<%=link_to"Rejected applications",empl_rejected_path%>
 
 <% @appl.each do |a| %>
 <% if a.status == "seen" %>
@@ -33,6 +31,12 @@
 <br />
 <b>Family Income:</b><%= a.family_income %>
 <br />
+<b>Points:</b><%= a.points %>
+<br />
+<%= render 'applies/formFeed', appl: a%>
+</span>
+<hr>
+<% end %>
 <%= render 'applies/formFeed', appl: a %>
 </span>
 <hr>
