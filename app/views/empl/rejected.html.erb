@@ -1,0 +1,39 @@
+<div>
+<h4>Rejected Applications<h4>
+  <div style="display:flex;justify-content:left">
+    <%=link_to"All Applications",empl_all_path%>
+    &nbsp &nbsp &nbsp
+<%=link_to"Pending applications",empl_index_path%>
+  &nbsp &nbsp &nbsp
+  <%=link_to"Accepted applications",empl_accepted_path%>
+</div>
+</div>
+
+<%@appl.each do |a| %>
+<span style="background-color:	#DCDCDC ;padding:10px;">
+<span class="img-thumbnail"><%= image_tag a.avatar.url(:thumb) %></span>
+<br>
+<b>First Name:</b><%= a.first_name %>
+<br />
+<b>Last Name:</b><%= a.last_name %>
+<br />
+<b>Aadhaar:</b><%= a.aadhaar %>
+<br />
+<b>Father's/Husband's Name:</b><%= a.father_husband_name %>
+<br />
+<b>Date of Birth:</b><%= a.date_of_birth %>
+<br />
+<b>Gender:</b><%= a.gender %>
+<br />
+<b>Address:</b><%= a.address %>
+<br />
+<b>Constituency:</b><%= a.constituency %>
+<br />
+<b>Mobile:</b><%= a.mobile %>
+<br />
+<b>Family Income:</b><%= a.family_income %>
+<br />
+</span>
+<hr>
+<% end %>
+<%=link_to"Back",empl_index_path%>

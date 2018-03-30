@@ -1,0 +1,12 @@
+<h1>Circulars</h1>
+
+<% @circular.each do |c| %>
+<div class="well">
+<b>By:</b><%= c.by %>
+<br />
+<b><%= link_to c.title, circular_path(c) %></b>
+<br />
+Created <%= time_ago_in_words(c.created_at) %> ago
+</div>
+<hr />
+<% end %>

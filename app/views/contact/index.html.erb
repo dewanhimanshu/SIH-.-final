@@ -1,0 +1,24 @@
+<h1>Contact</h1>
+<h3>Phone no:</h3>
+<b>07079070</b>
+<h3>Email:</h3>
+<b>www.abc@example.com</b>
+
+<h3>Offices:</h3>
+    <div id="map" style="height: 400px; width: 100%;"></div>
+    <script>
+      function initMap() {
+        var delhi = {lat: 28.7041, lng: 77.1025};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: delhi
+        });
+        var marker = new google.maps.Marker({
+          position: delhi,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvKTw_DYJ7TPnYIjq2VJYcRycTxKTxG6o&callback=initMap">
+    </script>

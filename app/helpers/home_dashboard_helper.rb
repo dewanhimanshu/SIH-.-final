@@ -1,0 +1,2 @@
+module HomeDashboardHelper
+end

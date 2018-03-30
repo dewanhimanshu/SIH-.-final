@@ -1,0 +1,11 @@
+<h1>Notices</h1>
+
+<% @notice.each do |n| %>
+<div class="well">
+<b>By:</b><%= n.by %>
+<hr />
+<b>For:</b><%= n.constituency %>
+<hr />
+<%= n.content %>
+</div>
+<% end %>

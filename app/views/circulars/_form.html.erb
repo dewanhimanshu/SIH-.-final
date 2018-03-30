@@ -1,0 +1,7 @@
+
+<%= simple_form_for @circular do |f| %>
+<%= f.input :by %>
+<%= f.input :title %>
+<%= f.input :content, as: :trix_editor %>
+<%= f.button :submit %>
+<% end %>
