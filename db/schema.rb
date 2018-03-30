@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328210819) do
+ActiveRecord::Schema.define(version: 20180330170737) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20180328210819) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.boolean "medical"
+    t.integer "points"
   end
 
   create_table "circulars", force: :cascade do |t|

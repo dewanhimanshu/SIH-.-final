@@ -1,4 +1,10 @@
-
+<div>
+Choose a text size:
+<font size="2"><a href="javascript:void(0);" onclick="changemysize(16);">A</a></font>
+<font size="4"><a href="javascript:void(0);" onclick="changemysize(20);">A</a></font>
+<font size="5"><a href="javascript:void(0);" onclick="changemysize(25);">A</a></font>
+</div>
+<div id="mymain">
 <%= simple_form_for @apply,:html => { :multipart => true } do |f| %>
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
 <label for="English">
@@ -113,8 +119,13 @@ Male
 Female
 <%= f.radio_button :gender, "Female" %>
 <br>
-
-
+<br>
+<b>medical conditions<b> :<br />
+Yes(chronic illness)
+<%= f.radio_button :medical,"true"%>
+No
+<%= f.radio_button :medical,"false"%>
+<br>
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>
 <label for="English">
 <audio id="father-english">
@@ -239,4 +250,10 @@ function hindi(element) {
 	});
 };
 
+</script>
+<script type="text/javascript">
+function changemysize(myvalue) {
+    var div = document.getElementById("mymain");
+    div.style.fontSize = myvalue + "px";
+}
 </script>
