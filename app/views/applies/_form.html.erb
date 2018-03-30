@@ -1,22 +1,31 @@
 
 <%= simple_form_for @apply,:html => { :multipart => true } do |f| %>
+<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
 <%= f.input :first_name  , required: true %>
+<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
 <%= f.input :last_name , required: true%>
+<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">photo</i>
 <%= f.input :avatar  , required: true%>
+<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">confirmation_number</i>
 <%= f.input :aadhaar, as: :integer, label: "Aadhaar No." , required: true%>
+<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">cake</i>
 <%= f.input :date_of_birth , required: true%>
+<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">face</i>
 Gender:<br />
 Male
 <%= f.radio_button :gender, "Male" %>
 Female
 <%= f.radio_button :gender, "Female" %>
-
 <br>
-
+<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>
 <%= f.input :father_husband_name, label: "Father's/Husband's Name" , required: true %>
+<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>
 <%= f.input :address , required: true%>
+<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">business</i>
 <%= f.input :constituency, collection: Constituency.all.pluck(:name) ,required: true %>
+<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">phone</i>
 <%= f.input :mobile, as: :integer , required: true%>
+<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">account_balance</i>
 <%= f.input :family_income, as: :integer , required: true%>
 <%= f.button :submit , id:"button", onclick:"tri" %>
 <% end %>
