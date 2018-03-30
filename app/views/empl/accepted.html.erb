@@ -9,7 +9,6 @@
 </div>
 </div>
 <% @accepted.each do |a| %>
-
 <span style="background-color:	#DCDCDC ;padding:10px;">
 <span class="img-thumbnail"><%= image_tag a.avatar.url(:thumb) %></span>
 <br>
@@ -35,7 +34,6 @@
 <br />
 <b>Points:</b><%= a.points %>
 <br />
-
 </span>
 <hr>
 <% end %>

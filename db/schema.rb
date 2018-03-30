@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330170737) do
+
+ActiveRecord::Schema.define(version: 20180328210819) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
@@ -65,6 +66,8 @@ ActiveRecord::Schema.define(version: 20180330170737) do
     t.integer "pin_code"
     t.integer "male_applicants", default: 0
     t.integer "female_applicants", default: 0
+    t.integer "male_applicants"
+    t.integer "female_applicants"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number", default: 0

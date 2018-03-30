@@ -26,8 +26,7 @@ class AppliesController < ApplicationController
   def create
     @apply = Apply.new(set_params)
     @apply.user_id = current_user.id
-
-    sum = 0
+sum = 0
     if @apply.medical==true
       sum = sum + 5
     end
@@ -43,8 +42,7 @@ class AppliesController < ApplicationController
       sum = sum + 5
     end
     @apply.points=sum
-
-    current_user.applied = true
+current_user.applied = true
     current_user.save
     if @apply.save
       @const = Constituency.where(name: @apply.constituency)[0]

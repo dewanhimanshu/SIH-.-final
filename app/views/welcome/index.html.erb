@@ -44,6 +44,7 @@
   ============================-->
   <section id="topbar" class="d-none d-lg-block">
     <div class="container clearfix">
+
       <div class="contact-info float-left" id="a">
         <i class="fa fa-envelope-o"></i><a href="mailto:contact@example.com">contact@example.com</a>
         <i class="fa fa-phone"></i> +1 5589 55488 55
@@ -53,6 +54,10 @@
         <font size="4"><a href="javascript:void(0);" onclick="changemysize(24);">A</a></font>
         <font size="5"><a href="javascript:void(0);" onclick="changemysize(30);">A</a></font>
 </div>
+      <div class="contact-info float-left">
+        <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">contact@example.com</a>
+        <i class="fa fa-phone"></i> +91 9999999999
+      </div>
     </div>
   </section>
 
@@ -83,6 +88,7 @@
                  <li><%=link_to"Dashborad",applies_path%></li>
               <%elsif current_user.user_type == true%>
                  <li><%=link_to"Dashborad",empl_index_path%></li>
+                 <li><%=link_to"Dashboard",admin_index_path%></li>
               <%elsif current_user.user_type == false%>
                  <li><%=link_to"Dashboard",applies_path%></li>
               <%elsif current_user.user_type == true%>
@@ -146,6 +152,7 @@
 
           <div class="col-lg-6 content" id="b">
 
+          <div class="col-lg-6 content">
             <h2>About Us</h2>
             <p>With a view to bring into existence a centrally controlled administered mechanism involving Pensioners Associations in the country, the Pensioners' Portal would function as a single window mechanism
                 <br>The  department  of Pension & Pensioners'  Welfare  is  the nodal department  for  formulation of policies  relating  to pension & other retirement benefits of Central Government Pensioners/Family Pensioners.
@@ -357,6 +364,7 @@
        <div  id="chart_div" style="height:300px;width:180px;margin:10px"><h4>Applications</h4></div>
        <div  id="barchart_values" style="height:300px;width:180px;margin-left:-400px"><h4>Age Distribution</h4></div>
        <div  id="charte_div" style="height:300px;width:180px;margin:10px"><h4>Family Incomes</h4></div>
+       <div id="charte_div" style="height:300px;width:180px;margin:10px"><h4>Family Incomes</h4></div>
       </div>
     </section><!-- #team -->
 

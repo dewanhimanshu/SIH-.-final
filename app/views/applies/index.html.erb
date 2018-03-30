@@ -4,6 +4,8 @@ Choose a text size:
 <font size="4"><a href="javascript:void(0);" onclick="changemysize(20);">A</a></font>
 <font size="5"><a href="javascript:void(0);" onclick="changemysize(25);">A</a></font>
 </div>
+
+
 <% if @apply == 0 %>
   <h3>Apply For Pension</h3>
   <%= link_to '<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
@@ -19,13 +21,13 @@ Choose a text size:
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
-    <b><div id="n">First Name:</b><%= @apply.first_name %></div></li>
+<b><div id="n">First Name:</b><%= @apply.first_name %></div></li>
   </li>
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
     <b><div id="b">Last Name:</b><%= @apply.last_name %></div></li>
-  </li>
+</li>
 
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
@@ -84,7 +86,6 @@ Choose a text size:
 
   <br />
 <div class="well">
-
   <b><div id="k">Status:</b> <%= @apply.status %></div>
   <br />
 

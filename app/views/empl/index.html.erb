@@ -5,8 +5,9 @@
 <%=link_to"Accepted applications",empl_accepted_path%>
 &nbsp &nbsp &nbsp
 <%=link_to"Rejected applications",empl_rejected_path%>
-</div>
+
 <% @appl.each do |a| %>
+<% if a.status == "seen" %>
 <span style="background-color:	#DCDCDC ;padding:10px;">
 <span class="img-thumbnail"><%= image_tag a.avatar.url(:thumb) %></span>
 <br>
@@ -35,4 +36,9 @@
 <%= render 'applies/formFeed', appl: a%>
 </span>
 <hr>
+<% end %>
+<%= render 'applies/formFeed', appl: a %>
+</span>
+<hr>
+<% end %>
 <% end %>
