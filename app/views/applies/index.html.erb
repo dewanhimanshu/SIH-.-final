@@ -81,6 +81,12 @@
 
   <br />
 <div class="well">
+  <%= @apply.status %>
+  <br />
+  <% if @apply.status == "applied"%>
+  <b>dsfdsf</b>
+  <br />
+  <% end %>
   <%= link_to '<button type="button" class="btn btn-primary">Edit Application</button>'.html_safe, edit_apply_path(@apply) %>
   <%= link_to '<button type="button" class="btn btn-danger">Delete Application</button>'.html_safe, apply_path(@apply), method: :delete %>
   <br />

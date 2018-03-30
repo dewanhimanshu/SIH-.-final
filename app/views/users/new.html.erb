@@ -13,3 +13,10 @@
   <br >
   <%=user.submit 'create'%>
 <%end%>
+
+<%= simple_form_for User.new, url: {action: "add_user"} do |u| %>
+<%= u.input :email %>
+<%= u.input :password %>
+<%= u.input :password_confirmation %>
+<%= u.button :submit %>
+<% end %>

@@ -1,7 +1,6 @@
 class EmplController < ApplicationController
   def index
-    @appl = Apply.where("applied=? AND constituency=? AND status!=? AND status!=?", true, current_user.constituency, "Accepted", "Declined")
-
+    @appl = Apply.where("constituency=? AND status=?", current_user.constituency, "seen")
   end
 
   def destroy
@@ -12,13 +11,13 @@ class EmplController < ApplicationController
 
   def accepted
     @appl = Apply.where(constituency: current_user.constituency)
-    @accepted=@appl.where(status: "Accepted")
+    @accepted = @appl.where(status: "Accept")
 
   end
 
   def rejected
         @appl = Apply.where(constituency: current_user.constituency)
-        @accepted=@appl.where(status: "Declined")
+        @accepted=@appl.where(status: "Decline")
   end
 
   def all

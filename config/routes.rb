@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'home_dashboard/index'
 
-    get  'user/new',  to: 'users#new'
-    post 'user/add_user',  to: 'users#add_user'
+  get  'user/new',  to: 'users#new'
+  post 'user/add_user',  to: 'users#add_user'
 
   get 'contact/index'
 

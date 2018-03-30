@@ -5,7 +5,7 @@
     &nbsp &nbsp &nbsp
 <%=link_to"Pending applications",empl_index_path%>
   &nbsp &nbsp &nbsp
-  <%=link_to"Accepted applications",empl_accepted_path%>
+  <%=link_to"Declined applications",empl_rejected_path%>
 </div>
 </div>
 <% @accepted.each do |a| %>
@@ -32,7 +32,6 @@
 <br />
 <b>Family Income:</b><%= a.family_income %>
 <br />
-<%= render 'applies/formFeedaccept', appl: a %>
 </span>
 <hr>
 <% end %>

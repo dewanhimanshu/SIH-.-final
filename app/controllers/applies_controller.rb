@@ -26,9 +26,17 @@ class AppliesController < ApplicationController
   def create
     @apply = Apply.new(set_params)
     @apply.user_id = current_user.id
-    current_user.applied=true
+
+    current_user.applied = true
     current_user.save
     if @apply.save
+      @const = Constituency.where(name: @apply.constituency)[0]
+      if @const.number != 0 && @const.number != nil
+        @apply.status = "seen"
+        @const.number -= 1
+        @const.save
+        @apply.save
+      end
       redirect_to applies_path
     else
       render 'new'
@@ -36,10 +44,36 @@ class AppliesController < ApplicationController
   end
 
   def edit
+    if @apply.status == "Decline"
+      @apply.status = "applied"
+      @apply.save
+    end
   end
 
   def update
     if @apply.update(set_params)
+      if @apply.status == "Decline"
+        const = Constituency.where(name: @apply.constituency)[0]
+        const.number += 1
+        Apply.all.each do |a|
+          if a.constituency == @apply.constituency
+            if a.status == "applied"
+              a.status = "seen"
+              a.save
+              const.number -= 1
+            end
+          end
+        end
+      const.save
+    elsif @apply.status == "applied"
+        @const = Constituency.where(name: @apply.constituency)[0]
+        if @const.number != 0 && @const.number != nil
+          @apply.status = "seen"
+          @const.number -= 1
+          @const.save
+          @apply.save
+        end
+      end
       redirect_to root_path
     else
       render 'edit'
@@ -53,7 +87,7 @@ class AppliesController < ApplicationController
 
   def appl
     @apply.applied = true
-    @apply.status = "Applied"
+    @apply.status = "applied"
     @apply.save
     const = Constituency.where(name: @apply.constituency)[0]
     const.number -= 1

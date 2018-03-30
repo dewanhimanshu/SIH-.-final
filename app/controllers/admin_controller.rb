@@ -15,6 +15,22 @@ class AdminController < ApplicationController
   def create_constituency
     @const = Constituency.new(params.require(:constituency).permit(:name, :pin_code, :number))
     if @const.save(params.require(:constituency).permit(:name, :pin_code, :number))
+      i = 0
+      number = @const.number
+      Apply.all.each do |a|
+        if a.constituency == @const.name
+          if a.status == "applied"
+            if i < number
+              a.status = "seen"
+              a.applied = true
+              a.save
+              i += 1
+              @const.number -= 1
+              @const.save
+            end
+          end
+        end
+      end
       redirect_to admin_index_path
     else
       render 'new_constituency'
@@ -26,6 +42,22 @@ class AdminController < ApplicationController
 
   def update_constituency
     if @const.update(params.require(:constituency).permit(:name, :pin_code, :number))
+      i = 0
+      number = @const.number
+      Apply.all.each do |a|
+        if a.constituency == @const.name
+          if a.status == "applied"
+            if i < number
+              a.status = "seen"
+              a.applied = true
+              a.save
+              i += 1
+              @const.number -= 1
+              @const.save
+            end
+          end
+        end
+      end
       redirect_to admin_index_path
     else
       render 'edit_constituency'
