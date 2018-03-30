@@ -169,10 +169,15 @@ $('.custom').click(function(){
   fade_out();
 });
 setTimeout(fade_out,5000);
-
-
-
-
 </script>
+<script>
+  $(document).ready(function(){
+    var aud = document.getElementById("#home-engish");
+
+    function playAud() {
+        aud.play();
+    }
+
+  });
   </body>
 </html>

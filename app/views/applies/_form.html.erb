@@ -1,34 +1,236 @@
 
 <%= simple_form_for @apply,:html => { :multipart => true } do |f| %>
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
+<label for="English">
+<audio id="first_name-english">
+  <source src="/first_name_eng.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="eng('first_name-english')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
+</label>
+<label for="Hindi">
+<audio id="first_name-hindi">
+  <source src="/first_name_hindi.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="hindi('first_name-hindi')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
+</label>
 <%= f.input :first_name  , required: true %>
+
+
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
+<label for="English">
+<audio id="last_name-english">
+  <source src="/last_name_eng.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="eng('last_name-english')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
+</label>
+<label for="Hindi">
+<audio id="last_name-hindi">
+  <source src="/last_name_hindi.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="hindi('last_name-hindi')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
+</label>
 <%= f.input :last_name , required: true%>
+
+
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">photo</i>
+<label for="English">
+<audio id="avatar_name-english">
+  <source src="/avatar_name_eng.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="eng('avatar_name-english')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
+</label>
+<label for="Hindi">
+<audio id="avatar_name-hindi">
+  <source src="/avatar_name_hindi.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="hindi('avatar_name-hindi')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
+</label>
 <%= f.input :avatar  , required: true%>
+
+
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">confirmation_number</i>
+<label for="English">
+<audio id="adhar_number-english">
+  <source src="/adhar_number_eng.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="eng('adhar_number-english')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
+</label>
+<label for="Hindi">
+<audio id="adhar_number-hindi">
+  <source src="/adhar_number_hindi.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="hindi('adhar_number-hindi')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
+</label>
 <%= f.input :aadhaar, as: :integer, label: "Aadhaar No." , required: true%>
+
+
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">cake</i>
-<%= f.input :date_of_birth , required: true%>
+<label for="English">
+<audio id="birth-english">
+  <source src="/birth_eng.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="eng('birth-english')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
+</label>
+<label for="Hindi">
+<audio id="birth-hindi">
+  <source src="/birth_hindi.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="hindi('birth-hindi')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
+</label>
+<%= f.input :date_of_birth , start_year: Date.today.year,
+                              end_year: Date.today.year - 100,
+                              order: [:day, :month, :year], required: true%>
+
+
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">face</i>
+<label for="English">
+<audio id="gender-english">
+  <source src="/gender_eng.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="eng('gender-english')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
+</label>
+<label for="Hindi">
+<audio id="gender-hindi">
+  <source src="/gender_hindi.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="hindi('gender-hindi')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
+</label>
 Gender:<br />
 Male
 <%= f.radio_button :gender, "Male" %>
 Female
 <%= f.radio_button :gender, "Female" %>
 <br>
+
+
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>
+<label for="English">
+<audio id="father-english">
+  <source src="/father_eng.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="eng('father-english')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
+</label>
+<label for="Hindi">
+<audio id="father-hindi">
+  <source src="/father_hindi.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="hindi('father-hindi')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
+</label>
 <%= f.input :father_husband_name, label: "Father's/Husband's Name" , required: true %>
+
+
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>
+<label for="English">
+<audio id="address-english">
+  <source src="/address_eng.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="eng('address-english')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
+</label>
+<label for="Hindi">
+<audio id="address-hindi">
+  <source src="/address_hindi.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="hindi('address-hindi')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
+</label>
 <%= f.input :address , required: true%>
+
+
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">business</i>
+<label for="English">
+<audio id="const-english">
+  <source src="/const_eng.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="eng('const-english')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
+</label>
+<label for="Hindi">
+<audio id="const-hindi">
+  <source src="/const_hindi.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="hindi('const-hindi')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
+</label>
 <%= f.input :constituency, collection: Constituency.all.pluck(:name) ,required: true %>
+
+
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">phone</i>
+<label for="English">
+<audio id="mobile-english">
+  <source src="/mobile_eng.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="eng('mobile-english')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
+</label>
+<label for="Hindi">
+<audio id="mobile-hindi">
+  <source src="/mobile_hindi.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="hindi('mobile-hindi')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
+</label>
 <%= f.input :mobile, as: :integer , required: true%>
+
+
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">account_balance</i>
+<label for="English">
+<audio id="family-english">
+  <source src="/family_eng.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="eng('family-english')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
+</label>
+<label for="Hindi">
+<audio id="family-hindi">
+  <source src="/family_hindi.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="hindi('family-hindi')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
+</label>
 <%= f.input :family_income, as: :integer , required: true%>
+
+<label for="English">
+<audio id="submit-english">
+  <source src="/submit_eng.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="eng('submit-english')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
+</label>
+<label for="Hindi">
+<audio id="submit-hindi">
+  <source src="/submit_hindi.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<div class="mdl-navigation__link" onclick="hindi('submit-hindi')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
+</label>
 <%= f.button :submit , id:"button", onclick:"tri" %>
 <% end %>
+
+<script>
+function eng(element) {
+  var x = document.getElementById(element);
+    x.play();
+}
+function hindi(element) {
+  var y = document.getElementById(element);
+    y.play();
+}
+</script>
 
 <script >
 	var tri = function(){
