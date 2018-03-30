@@ -10,14 +10,11 @@ class EmplController < ApplicationController
   end
 
   def accepted
-    @appl = Apply.where(constituency: current_user.constituency)
-    @accepted = @appl.where(status: "Accept")
-
+    @appl = Apply.where(constituency: current_user.constituency, status: "Accept")
   end
 
   def rejected
-        @appl = Apply.where(constituency: current_user.constituency)
-        @accepted=@appl.where(status: "Decline")
+    @appl = Apply.where(constituency: current_user.constituency, status: "Decline")
   end
 
   def all

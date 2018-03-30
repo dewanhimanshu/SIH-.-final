@@ -81,16 +81,13 @@
 
   <br />
 <div class="well">
-  <%= @apply.status %>
+  <b>Status:</b> <%= @apply.status %>
   <br />
-  <% if @apply.status == "applied"%>
-  <b>dsfdsf</b>
-  <br />
+
+  <% if @apply.status == "applied" %>
+    <%= link_to '<button type="button" class="btn btn-primary">Edit Application</button>'.html_safe, edit_apply_path(@apply) %>
+    <%= link_to '<button type="button" class="btn btn-danger">Delete Application</button>'.html_safe, apply_path(@apply), method: :delete %>
   <% end %>
-  <%= link_to '<button type="button" class="btn btn-primary">Edit Application</button>'.html_safe, edit_apply_path(@apply) %>
-  <%= link_to '<button type="button" class="btn btn-danger">Delete Application</button>'.html_safe, apply_path(@apply), method: :delete %>
-  <br />
-  <%= link_to '<button class="waves-effect waves-light btn">Apply</button>'.html_safe, appl_path(@apply) %>
   <br />
   <%= link_to '<button class="waves-effect waves-light btn">Print Application</button>'.html_safe, applies_path(@apply, format: "pdf"), target: :_blank %>
 </div>

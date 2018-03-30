@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'app_status/index'
 
+  get 'tutorials/index'
+
   resources :notices
 
   get 'circulars/index'
