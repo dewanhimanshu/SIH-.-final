@@ -5,6 +5,18 @@ Choose a text size:
 <font size="5"><a href="javascript:void(0);" onclick="changemysize(25);">A</a></font>
 </div>
 
+<div id="button">
+  <div id="black-button">
+  <b>Black
+  </div>
+    <br />
+    <div id="white-button">
+    White
+  </b>
+</div>
+</div>
+<div class="color-blind">
+
 <% if @apply == 0 %>
   <h3>Apply For Pension</h3>
   <%= link_to '<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
@@ -22,12 +34,17 @@ Choose a text size:
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
 
 <b><div id="n">First Name:</b><%= @apply.first_name %></div></li>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1128a432e943ff959c77e491e1a2d3742a69e8ec
   </li>
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
     <b><div id="b">Last Name:</b><%= @apply.last_name %></div></li>
 </li>
+
 
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
@@ -38,7 +55,9 @@ Choose a text size:
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>
+
     <b><div id="d">Father's/Husband's Name:</b><%= @apply.father_husband_name %></div></li>
+
   </li>
 
   <li class="collection-item" style="list-style: none;">
@@ -86,17 +105,19 @@ Choose a text size:
 
   <li class="collection-item" style="list-style: none;">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">photo</i>
-    <b><div id="z">User Image:</div></b>
+    <b><div id="z">Aadhaar Image:</div></b>
     <br />
-    <span class="img-thumbnail"><%= image_tag @apply.avatar.url(:thumb) %></span>
+    <span class="img-thumbnail"><%= image_tag @apply.aadharcard.url(:thumb) %></span>
   </li>
 
   <li class="collection-item" style="list-style: none;">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">photo</i>
-    <b><div id="z">User Image:</div></b>
+    <b><div id="z">Income Certificate:</div></b>
     <br />
-    <span class="img-thumbnail"><%= image_tag @apply.avatar.url(:thumb) %></span>
+    <span class="img-thumbnail"><%= image_tag @apply.incomecertificate.url(:thumb) %></span>
   </li>
+
+</ul>
 
   <br />
 <div class="well">
@@ -111,7 +132,19 @@ Choose a text size:
   <%= link_to '<button class="waves-effect waves-light btn">Print Application</button>'.html_safe, applies_path(@apply, format: "pdf"), target: :_blank %>
 </div>
 
+</div>
+
 <% end %>
+<script type="text/javascript">
+  $(document).reaady(function(){
+    var x = $('.white-button');
+    var y = $('.black-button');
+
+    x.click(function(){
+      $('.color-blind').addClass('.visible');
+    });
+  });
+</script>
 
 <script type="text/javascript">
 function changemysize(myvalue) {
