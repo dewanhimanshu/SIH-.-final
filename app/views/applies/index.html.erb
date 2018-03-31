@@ -5,6 +5,18 @@ Choose a text size:
 <font size="5"><a href="javascript:void(0);" onclick="changemysize(25);">A</a></font>
 </div>
 
+<div id="button">
+  <div id="black-button">
+  <b>Black
+  </div>
+    <br />
+    <div id="white-button">
+    White
+  </b>
+</div>
+</div>
+<div class="color-blind">
+
 <% if @apply == 0 %>
   <h3>Apply For Pension</h3>
   <%= link_to '<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
@@ -117,7 +129,16 @@ Choose a text size:
   <%= link_to '<button class="waves-effect waves-light btn">Print Application</button>'.html_safe, applies_path(@apply, format: "pdf"), target: :_blank %>
 </div>
 
+</div>
+
 <% end %>
+<script type="text/javascript">
+  $(document).reaady(function(){
+    var x = $('.color-blind');
+
+    x.click()
+  });
+</script>
 
 <script type="text/javascript">
 function changemysize(myvalue) {
