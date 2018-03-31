@@ -5,10 +5,12 @@
 <%=link_to"Accepted applications",empl_accepted_path%>
 &nbsp &nbsp &nbsp
 <%=link_to"Rejected applications",empl_rejected_path%>
+</div>
 
 <% @appl.each do |a| %>
 <% if a.status == "seen" %>
 <span style="background-color:	#DCDCDC ;padding:10px;">
+<b>User Image:</b>
 <span class="img-thumbnail"><%= image_tag a.avatar.url(:thumb) %></span>
 <br>
 <b>First Name:</b><%= a.first_name %>
@@ -17,6 +19,9 @@
 <br />
 <b>Aadhaar:</b><%= a.aadhaar %>
 <br />
+<b>Aadhaar Card Image:</b>
+<span class="img-thumbnail"><%= image_tag a.aadharcard.url(:thumb) %></span>
+<br>
 <b>Father's/Husband's Name:</b><%= a.father_husband_name %>
 <br />
 <b>Date of Birth:</b><%= a.date_of_birth %>
@@ -31,6 +36,11 @@
 <br />
 <b>Family Income:</b><%= a.family_income %>
 <br />
+<% if a.incomecertificate != nil %>
+<b>Income Certificate:</b>
+<span class="img-thumbnail"><%= image_tag a.incomecertificate.url(:thumb) %></span>
+<br>
+<% end %>
 <b>Points:</b><%= a.points %>
 <br />
 <%= render 'applies/formFeed', appl: a%>
@@ -40,5 +50,4 @@
 <%= render 'applies/formFeed', appl: a %>
 </span>
 <hr>
-<% end %>
 <% end %>

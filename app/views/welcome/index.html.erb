@@ -81,12 +81,11 @@
           <%end%>
           <%if user_signed_in?%>
               <%if current_user.admin == true%>
-                 <li><%=link_to"Dashborad",admin_index_path%></li>
-              <%elsif current_user.user_type == false%>
-                 <li><%=link_to"Dashborad",applies_path%></li>
-              <%elsif current_user.user_type == true%>
-                 <li><%=link_to"Dashborad",empl_index_path%></li>
                  <li><%=link_to"Dashboard",admin_index_path%></li>
+              <%elsif current_user.user_type == false%>
+                 <li><%=link_to"Dashboard",applies_path%></li>
+              <%elsif current_user.user_type == true%>
+                 <li><%=link_to"Dashboard",empl_index_path%></li>
               <%elsif current_user.user_type == false%>
                  <li><%=link_to"Dashboard",applies_path%></li>
               <%elsif current_user.user_type == true%>

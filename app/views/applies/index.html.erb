@@ -5,6 +5,18 @@ Choose a text size:
 <font size="5"><a href="javascript:void(0);" onclick="changemysize(25);">A</a></font>
 </div>
 
+<div id="button">
+  <div id="black-button">
+  <b>Black
+  </div>
+    <br />
+    <div id="white-button">
+    White
+  </b>
+</div>
+</div>
+<div class="color-blind">
+
 <% if @apply == 0 %>
   <h3>Apply For Pension</h3>
   <%= link_to '<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
@@ -20,50 +32,29 @@ Choose a text size:
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
-<<<<<<< HEAD
-    <b>First Name:</b><%= @apply.first_name %>
-  </li>
-=======
+
 <b><div id="n">First Name:</b><%= @apply.first_name %></div></li>
->>>>>>> a91cac3d826a7f58fa21bb56195e1a3889b7dcdc
+
   </li>
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
-<<<<<<< HEAD
-    <b>Last Name:</b><%= @apply.last_name %>
-    <div id="last_name-english"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
-    <div id="last_name-english"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div></li>
-  </li>
-=======
     <b><div id="b">Last Name:</b><%= @apply.last_name %></div></li>
 </li>
->>>>>>> a91cac3d826a7f58fa21bb56195e1a3889b7dcdc
+
 
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">confirmation_number</i>
-<<<<<<< HEAD
-    <b>Aadhaar:</b><%= @apply.aadhaar %>
-    <div id="aadhaar-english"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
-    <div id="aadhaar-english"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
-  </li>
-=======
     <b><div id="c">Aadhaar:</b><%= @apply.aadhaar %></div></li>
->>>>>>> a91cac3d826a7f58fa21bb56195e1a3889b7dcdc
   </li>
 
   <li class="collection-item" style="list-style: none;">
     <li class="list-group-item">
     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>
-<<<<<<< HEAD
-    <b>Father's/Husband's Name:</b><%= @apply.father_husband_name %>
-    <div id="father_husband_name-english"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>English</div>
-    <div id="father_husband_name-english"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
-  </li>
-=======
+
     <b><div id="d">Father's/Husband's Name:</b><%= @apply.father_husband_name %></div></li>
->>>>>>> a91cac3d826a7f58fa21bb56195e1a3889b7dcdc
+
   </li>
 
   <li class="collection-item" style="list-style: none;">
@@ -109,6 +100,22 @@ Choose a text size:
     <span class="img-thumbnail"><%= image_tag @apply.avatar.url(:thumb) %></span>
   </li>
 
+  <li class="collection-item" style="list-style: none;">
+    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">photo</i>
+    <b><div id="z">Aadhaar Image:</div></b>
+    <br />
+    <span class="img-thumbnail"><%= image_tag @apply.aadharcard.url(:thumb) %></span>
+  </li>
+
+  <li class="collection-item" style="list-style: none;">
+    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">photo</i>
+    <b><div id="z">Income Certificate:</div></b>
+    <br />
+    <span class="img-thumbnail"><%= image_tag @apply.incomecertificate.url(:thumb) %></span>
+  </li>
+
+</ul>
+
   <br />
 <div class="well">
   <b><div id="k">Status:</b> <%= @apply.status %></div>
@@ -122,7 +129,19 @@ Choose a text size:
   <%= link_to '<button class="waves-effect waves-light btn">Print Application</button>'.html_safe, applies_path(@apply, format: "pdf"), target: :_blank %>
 </div>
 
+</div>
+
 <% end %>
+<script type="text/javascript">
+  $(document).reaady(function(){
+    var x = $('.white-button');
+    var y = $('.black-button');
+
+    x.click(function(){
+      $('.color-blind').addClass('.visible');
+    });
+  });
+</script>
 
 <script type="text/javascript">
 function changemysize(myvalue) {

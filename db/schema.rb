@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330170737) do
+ActiveRecord::Schema.define(version: 20180330181926) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 20180330170737) do
     t.datetime "avatar_updated_at"
     t.boolean "medical"
     t.integer "points"
+    t.string "incomecertificate_file_name"
+    t.string "incomecertificate_content_type"
+    t.integer "incomecertificate_file_size"
+    t.datetime "incomecertificate_updated_at"
+    t.string "aadharcard_file_name"
+    t.string "aadharcard_content_type"
+    t.integer "aadharcard_file_size"
+    t.datetime "aadharcard_updated_at"
   end
 
   create_table "circulars", force: :cascade do |t|

@@ -125,7 +125,7 @@ current_user.applied = true
 
   private
   def set_params
-    params.require(:apply).permit(:first_name, :last_name, :avatar, :father_husband_name, :aadhaar, :date_of_birth, :address, :constituency, :mobile, :gender, :family_income, :status, :feedback)
+    params.require(:apply).permit(:first_name, :last_name, :avatar, :father_husband_name, :aadhaar, :date_of_birth, :address, :constituency, :mobile, :gender, :family_income, :status, :feedback, :incomecertificate, :aadharcard)
   end
 
   def find_apply
