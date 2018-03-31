@@ -1,0 +1,10 @@
+<h1>Feed Index</h1>
+<% if @feed.title != nil %>
+<%= @feed.title %>
+<%= @feed.rating %>
+<br />
+<%= link_to "Edit", edit_feed_path(@feed) %>
+<%= link_to "Delete", feed_path(@feed), method: :delete %>
+<% else %>
+<%= link_to "new", new_feed_path %>
+<% end %>

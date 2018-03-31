@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :feeds
+
+  get 'feeds/index'
+
+  get 'feeds/new'
+
+  get 'feeds/edit'
+
   get 'home_dashboard/index'
 
   get  'user/new',  to: 'users#new'

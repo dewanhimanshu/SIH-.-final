@@ -1,0 +1,8 @@
+<h1>Edit a feedback</h1>
+
+<% if @feed != nil %>
+<%= @feed.rating %>
+<br />
+<%= @feed.feed %>
+
+<%= link_to "New", new_feedback_path %>

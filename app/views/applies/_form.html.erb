@@ -70,7 +70,7 @@ Choose a text size:
 </audio>
 <div class="mdl-navigation__link" onclick="hindi('avatar_name-hindi')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">volume_up</i>Hindi</div>
 </label>
-<%= f.input :avatar  , required: true%>
+<%= f.input :avatar  , required: true, label: "Image of Applicant"%>
 <%= f.input :aadharcard %>
 
 
@@ -140,7 +140,7 @@ Yes(chronic illness)
 No
 <%= f.radio_button :medical,"false"%>
 <br>
-<%= f.input :medcerti, required: true%>
+<%= f.input :medcerti, required: true, label: "Medical Certificate of applicant:"%>
 <br />
 
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>

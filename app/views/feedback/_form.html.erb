@@ -1,0 +1,9 @@
+<%= simple_form_for @feed, url: "/feedback", method: :post do |f| %>
+<%= f.radio_button :rating, 1 %>
+<%= f.radio_button :rating, 2 %>
+<%= f.radio_button :rating, 3 %>
+<%= f.radio_button :rating, 4 %>
+<%= f.radio_button :rating, 5 %>
+<%= f.input :feed %>
+<%= f.button :submit %>
+<% end %>

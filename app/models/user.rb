@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_one :feedback
+
   has_many :circulars
 
   has_many :questions, dependent: :destroy

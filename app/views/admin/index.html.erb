@@ -121,4 +121,12 @@
     <% end %>
   </tbody>
 </table>
+
+<hr />
+
+<% er = 0 %>
+<% Feed.all.each do |f| %>
+<% er += f.rating %>
+<% end %>
+Feedback Average:<%= er/Feed.all.length %>
 </div>
