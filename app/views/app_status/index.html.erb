@@ -1,2 +1,18 @@
-<h1>AppStatus#index</h1>
-<p>Find me in app/views/app_status/index.html.erb</p>
+<h1>Application Status</h1>
+<% if user_signed_in? %>
+<% if current_user.admin == true %>
+  <h3>You are admin.</h3>
+<% elsif current_user.user_type == true %>
+  <h3>You are empl.</h3>
+<% else %>
+  <h3>Status:<%= current_user.apply.status %></h3>
+  <% if current_user.apply.feedback != nil %>
+    <h3>Feedback:<%= current_user.apply.feedback %></h3>
+  <% end %>
+  <div class="well">
+    <b>
+      For any inquiries please <%= link_to "Contact", contact_index_path %>.
+    </b>
+  </div>
+<% end %>
+<% end %>

@@ -4,6 +4,19 @@ Choose a text size:
 <font size="4"><a href="javascript:void(0);" onclick="changemysize(20);">A</a></font>
 <font size="5"><a href="javascript:void(0);" onclick="changemysize(25);">A</a></font>
 </div>
+
+<div class="button-class well">
+  <b>For people with color blindness.</b>
+  <hr />
+  <div id="black-button">
+    <b>Apply</b>
+  </div>
+  <div id="white-button">
+    <b>Revert Color Scheme</b>
+  </div>
+</div>
+
+<div class="form-class">
 <div id="mymain">
 <%= simple_form_for @apply,:html => { :multipart => true } do |f| %>
 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>
@@ -231,6 +244,7 @@ No
 </label>
 <%= f.button :submit , id:"button", onclick:"tri" %>
 <% end %>
+</div>
 
 <script>
 function eng(element) {
@@ -241,6 +255,25 @@ function hindi(element) {
   var y = document.getElementById(element);
     y.play();
 }
+</script>
+
+<script>
+  var x = $('.form-class');
+
+  var y = $('#black-button').click(function(){
+    alert('This feature is developed while keeping in mind people with color blindness!');
+    x.addClass('visible');
+  });
+
+  var z = $('#white-button').click(function(){
+    if($('.form-class visible'))
+    {
+      x.removeClass('visible');
+    }
+    else
+    {
+    }
+  });
 </script>
 
 <script >
