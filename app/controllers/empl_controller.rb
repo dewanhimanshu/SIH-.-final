@@ -30,6 +30,7 @@ class EmplController < ApplicationController
     @appl = Apply.where(constituency: current_user.constituency, status: "Decline")
   end
 
-
-
+  def show
+    @a = Apply.find(params[:id])
+  end
 end

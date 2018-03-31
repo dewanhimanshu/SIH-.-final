@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330181926) do
+ActiveRecord::Schema.define(version: 20180331051324) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
@@ -53,6 +53,18 @@ ActiveRecord::Schema.define(version: 20180330181926) do
     t.string "aadharcard_content_type"
     t.integer "aadharcard_file_size"
     t.datetime "aadharcard_updated_at"
+    t.string "incomecerti_file_name"
+    t.string "incomecerti_content_type"
+    t.integer "incomecerti_file_size"
+    t.datetime "incomecerti_updated_at"
+    t.string "aadhaarcard_file_name"
+    t.string "aadhaarcard_content_type"
+    t.integer "aadhaarcard_file_size"
+    t.datetime "aadhaarcard_updated_at"
+    t.string "medcerti_file_name"
+    t.string "medcerti_content_type"
+    t.integer "medcerti_file_size"
+    t.datetime "medcerti_updated_at"
   end
 
   create_table "circulars", force: :cascade do |t|
@@ -71,8 +83,8 @@ ActiveRecord::Schema.define(version: 20180330181926) do
   create_table "constituencies", force: :cascade do |t|
     t.string "name"
     t.integer "pin_code"
-    t.integer "male_applicants"
-    t.integer "female_applicants"
+    t.integer "male_applicants", default: 0
+    t.integer "female_applicants", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number", default: 0
@@ -106,6 +118,13 @@ ActiveRecord::Schema.define(version: 20180330181926) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "user_type", default: false
@@ -120,8 +139,10 @@ ActiveRecord::Schema.define(version: 20180330181926) do
     t.integer "sign_file_size"
     t.datetime "sign_updated_at"
     t.boolean "applied", default: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
   create_table "vacencies", force: :cascade do |t|
