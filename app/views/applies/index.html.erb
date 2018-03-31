@@ -134,9 +134,12 @@ Choose a text size:
 <% end %>
 <script type="text/javascript">
   $(document).reaady(function(){
-    var x = $('.color-blind');
+    var x = $('.white-button');
+    var y = $('.black-button');
 
-    x.click()
+    x.click(function(){
+      $('.color-blind').addClass('.visible');
+    });
   });
 </script>
 
